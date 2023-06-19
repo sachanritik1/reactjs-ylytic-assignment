@@ -120,6 +120,10 @@ td {
 	border: none;
 }
 
+.speacial-filter:hover {
+	cursor: pointer;
+}
+
 .speacial-filter-button {
 	display: flex;
 	align-items: center;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 
-const SearchBar = ({ data, setData, comments }) => {
+const SearchBar = ({ data, setData, comments, setCurrentPage }) => {
 	const [filterText, setFilterText] = useState("")
 	const previousData = useRef(null)
 
@@ -22,15 +22,22 @@ const SearchBar = ({ data, setData, comments }) => {
 	}, [filterText])
 
 	const handleFilterChange = (event) => {
+		setCurrentPage(1)
 		const value = event.target.value
 		setFilterText(value)
 	}
 
 	return (
-		<div>
-			<label htmlFor="filterInput">Filter:</label>
-			<input type="text" value={filterText} onChange={handleFilterChange} />
-			<button onClick={() => setFilterText("")}>{"x"}</button>
+		<div className="searchBar">
+			<div className="container">
+				<input
+					type="text"
+					value={filterText}
+					onChange={handleFilterChange}
+					placeholder="Filter"
+				/>
+				<button onClick={() => setFilterText("")}>{"x"}</button>
+			</div>
 		</div>
 	)
 }

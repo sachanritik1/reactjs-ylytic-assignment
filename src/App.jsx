@@ -32,7 +32,7 @@ function App() {
 	}
 
 	return (
-		<div>
+		<div className="app">
 			<Header
 				data={data}
 				setData={setData}
@@ -41,6 +41,7 @@ function App() {
 				handlePageChange={handlePageChange}
 				currentPage={currentPage}
 				totalPages={totalPages}
+				setCurrentPage={setCurrentPage}
 			/>
 			<Table
 				data={data}

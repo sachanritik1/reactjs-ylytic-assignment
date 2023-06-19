@@ -1,4 +1,172 @@
 body {
 	margin: 0;
 	padding: 0;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #333;
+	background-color: #fff;
+}
+
+.app {
+	padding: 2%;
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+h1 {
+	font-size: 36px;
+	margin: 0 0 5px 0;
+	padding: 0;
+	font-weight: 500;
+	line-height: 1.1;
+}
+
+.header .source {
+	color: #337ab7;
+	text-decoration: none;
+	margin-bottom: 5px;
+}
+
+.search-record-page {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.searchBar {
+	flex: 0.33;
+	text-align: start;
+}
+
+.searchBar .container {
+	width: fit-content;
+}
+
+.searchBar input {
+	padding: 6px;
+	border: 1px solid #ccc;
+	border-right: none;
+}
+.searchBar button {
+	padding-left: -1px;
+	padding: 6px;
+	background-color: transparent;
+	border: 1px solid #ccc;
+	border-left: none;
+}
+
+.records {
+	flex: 0.33;
+	text-align: center;
+}
+
+.page-dropdown {
+	flex: 0.33;
+	text-align: end;
+}
+
+.page-dropdown select {
+	padding: 6px;
+	border: 1px solid #ccc;
+}
+
+.header-nav {
+	margin-top: 5px;
+	align-self: flex-end;
+	margin-bottom: 15px;
+}
+
+.footer-nav {
+	margin-top: 10px;
+}
+
+.table-headers th {
+	text-align: start;
+}
+
+th,
+td {
+	padding-right: 15px;
+}
+
+.nav-button {
+	padding: 6px;
+	background-color: transparent;
+	border: 1px solid #ccc;
+	min-width: 30px;
+}
+
+.nav-button:hover {
+	cursor: pointer;
+}
+
+.nav-button-active2 {
+	background-color: #337ab7;
+	border-color: #337ab7;
+}
+
+.nav-button-active:hover {
+	cursor: not-allowed;
+}
+
+.speacial-filter {
+	color: #337ab7;
+	background-color: transparent;
+	border: none;
+}
+
+.speacial-filter-button {
+	display: flex;
+	align-items: center;
+	width: fit-content;
+	border: 1px solid #ccc;
+}
+
+.speacial-filter-button div {
+	padding: 6px;
+	background-color: #337ab7;
+	color: #fff;
+}
+
+.speacial-filter-button button {
+	color: #fff;
+}
+
+.speacial-filter-button button:hover {
+	cursor: pointer;
+}
+
+.speacial-filter-button button {
+	background-color: transparent;
+	border: none;
+}
+table {
+	border-spacing: 0;
+}
+th,
+td {
+	border-bottom: 1px solid #ccc;
+	text-align: left;
+	vertical-align: middle;
+}
+
+@media screen and (max-width: 768px) {
+	.search-record-page {
+		flex-direction: column;
+		margin-bottom: 10px;
+	}
+
+	.header-nav {
+		align-self: end;
+	}
+
+	th,
+	td {
+		padding: 0;
+	}
 }

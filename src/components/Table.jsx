@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import TableNav from "./TableNav"
+import ColumnHeading from "./ColumnHeading"
 
 const defaultDirection = {
 	at: 0,
@@ -108,7 +109,13 @@ const Table = ({
 		<div>
 			<div>
 				{previousData && (
-					<button onClick={removeAuthorFilter}>Remove Filter</button>
+					<div className="speacial-filter-button">
+						<div>
+							<button onClick={removeAuthorFilter}>x </button>
+							Author
+						</div>
+						{data[0].author}
+					</div>
 				)}
 			</div>
 			<div>
@@ -117,67 +124,32 @@ const Table = ({
 				) : (
 					<table>
 						<thead>
-							<tr>
-								<th onClick={handleAtClick}>
-									At
-									{direction.at === 0 ? (
-										<span>
-											<span>&#x25B2;</span> <span>&#x25BC;</span>
-										</span>
-									) : direction.at === 1 ? (
-										<span>&#x25B2;</span>
-									) : (
-										<span>&#x25BC;</span>
-									)}
-								</th>
-								<th onClick={handleAuthorClick}>
-									Author
-									{direction.author === 0 ? (
-										<span>
-											<span>&#x25B2;</span> <span>&#x25BC;</span>
-										</span>
-									) : direction.author === 1 ? (
-										<span>&#x25B2;</span>
-									) : (
-										<span>&#x25BC;</span>
-									)}
-								</th>
-								<th onClick={handleLikeClick}>
-									Like
-									{direction.like === 0 ? (
-										<span>
-											<span>&#x25B2;</span> <span>&#x25BC;</span>
-										</span>
-									) : direction.like === 1 ? (
-										<span>&#x25B2;</span>
-									) : (
-										<span>&#x25BC;</span>
-									)}
-								</th>
-								<th onClick={handleReplyClick}>
-									Reply
-									{direction.reply === 0 ? (
-										<span>
-											<span>&#x25B2;</span> <span>&#x25BC;</span>
-										</span>
-									) : direction.reply === 1 ? (
-										<span>&#x25B2;</span>
-									) : (
-										<span>&#x25BC;</span>
-									)}
-								</th>
-								<th onClick={handleTextClick}>
-									Text
-									{direction.text === 0 ? (
-										<span>
-											<span>&#x25B2;</span> <span>&#x25BC;</span>
-										</span>
-									) : direction.text === 1 ? (
-										<span>&#x25B2;</span>
-									) : (
-										<span>&#x25BC;</span>
-									)}
-								</th>
+							<tr className="table-headers">
+								<ColumnHeading
+									handleSort={handleAtClick}
+									label="At"
+									sortOrder={direction.at}
+								/>
+								<ColumnHeading
+									handleSort={handleAuthorClick}
+									label="Author"
+									sortOrder={direction.author}
+								/>
+								<ColumnHeading
+									handleSort={handleLikeClick}
+									label="Like"
+									sortOrder={direction.like}
+								/>
+								<ColumnHeading
+									handleSort={handleReplyClick}
+									label="Reply"
+									sortOrder={direction.reply}
+								/>
+								<ColumnHeading
+									handleSort={handleTextClick}
+									label="Text"
+									sortOrder={direction.text}
+								/>
 							</tr>
 						</thead>
 						<tbody>
@@ -185,7 +157,14 @@ const Table = ({
 								return (
 									<tr key={at}>
 										<td>{at}</td>
-										<td onClick={handleAuthorFilter(author)}>{author}</td>
+										<td>
+											<button
+												className="speacial-filter"
+												onClick={handleAuthorFilter(author)}
+											>
+												{author}
+											</button>
+										</td>
 										<td>{like}</td>
 										<td>{reply}</td>
 										<td>{text}</td>
@@ -196,11 +175,13 @@ const Table = ({
 					</table>
 				)}
 			</div>
-			<TableNav
-				handlePageChange={handlePageChange}
-				currentPage={currentPage}
-				totalPages={totalPages}
-			/>
+			<div className="footer-nav">
+				<TableNav
+					handlePageChange={handlePageChange}
+					currentPage={currentPage}
+					totalPages={totalPages}
+				/>
+			</div>
 		</div>
 	)
 }
